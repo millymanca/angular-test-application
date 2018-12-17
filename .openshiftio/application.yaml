@@ -186,7 +186,7 @@ objects:
             - test-project-angular-runtime
           from:
             kind: ImageStreamTag
-            name: 'test-project-angular-runtime:latest'
+            name: test-project-angular-runtime:latest
 - apiVersion: v1
   kind: Service
   metadata:
