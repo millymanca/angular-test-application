@@ -1,0 +1,125 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "DeploymentConfig",
+      "metadata": {
+        "name": "test-project",
+        "namespace": "poc-project",
+        "labels": {
+          "project": "test-project",
+          "version": "0.0.0",
+          "provider": "nodeshift",
+          "app": "test-project"
+        }
+      },
+      "spec": {
+        "replicas": 1,
+        "revisionHistoryLimit": 2,
+        "selector": {
+          "app": "test-project",
+          "project": "test-project",
+          "provider": "nodeshift"
+        },
+        "triggers": [
+          {
+            "type": "ConfigChange"
+          },
+          {
+            "type": "ImageChange",
+            "imageChangeParams": {
+              "automatic": true,
+              "containerNames": [
+                "test-project"
+              ],
+              "from": {
+                "kind": "ImageStreamTag",
+                "name": "test-project:latest"
+              }
+            }
+          }
+        ],
+        "template": {
+          "metadata": {
+            "labels": {
+              "project": "test-project",
+              "version": "0.0.0",
+              "provider": "nodeshift",
+              "app": "test-project"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "test-project",
+                "name": "test-project",
+                "securityContext": {
+                  "privileged": false
+                },
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Service",
+      "spec": {
+        "selector": {
+          "project": "test-project",
+          "provider": "nodeshift"
+        },
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8080,
+            "targetPort": 8080,
+            "name": "http"
+          }
+        ],
+        "type": "ClusterIP"
+      },
+      "metadata": {
+        "name": "test-project",
+        "namespace": "poc-project",
+        "labels": {
+          "project": "test-project",
+          "version": "0.0.0",
+          "provider": "nodeshift"
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Route",
+      "spec": {
+        "to": {
+          "kind": "Service",
+          "name": "test-project"
+        },
+        "port": {
+          "targetPort": 8080
+        }
+      },
+      "metadata": {
+        "name": "test-project",
+        "labels": {
+          "project": "test-project",
+          "version": "0.0.0",
+          "provider": "nodeshift"
+        }
+      }
+    }
+  ]
+}
