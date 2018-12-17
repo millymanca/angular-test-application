@@ -13,6 +13,10 @@
           "version": "0.0.0",
           "provider": "nodeshift",
           "app": "test-project"
+        },
+        "annotations": {
+          "nodeshift/git-branch": "master",
+          "nodeshift/git-commit": "ead3fe661583df3b159c0c9875cfc652cbae7cd3"
         }
       },
       "spec": {
@@ -48,6 +52,10 @@
               "version": "0.0.0",
               "provider": "nodeshift",
               "app": "test-project"
+            },
+            "annotations": {
+              "nodeshift/git-branch": "master",
+              "nodeshift/git-commit": "ead3fe661583df3b159c0c9875cfc652cbae7cd3"
             }
           },
           "spec": {
@@ -97,6 +105,10 @@
           "project": "test-project",
           "version": "0.0.0",
           "provider": "nodeshift"
+        },
+        "annotations": {
+          "nodeshift/git-branch": "master",
+          "nodeshift/git-commit": "ead3fe661583df3b159c0c9875cfc652cbae7cd3"
         }
       }
     },
