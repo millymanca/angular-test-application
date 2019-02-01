@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npx serve -s dist/angular-test-application/ -l 8080",
+    "start": "npx serve -s dist/test-project-angular/ -l 8080",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
