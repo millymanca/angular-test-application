@@ -6,7 +6,7 @@ const appVer = require('./package.json').version;
 const appName = require('./package.json').name;
 
 // the file we will write the settings to
-const targetPath = `./src/environments/environment.prod.ts`;
+const targetPath = `./src/environments/environment.ts`;
 
 // This will load the env vars defined in the local .env file, which should
 // be added to .gitignore. That means .env will not and should not be present 
