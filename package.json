@@ -5,7 +5,7 @@
     "ng": "ng",
     "config": "node set-env.js",
     "start": "npx serve -s dist/test-project-angular/ -l 8080",
-    "build": "npm run config && ng build--configuration=production",
+    "build": "npm run config && ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
