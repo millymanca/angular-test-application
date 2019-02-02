@@ -19,10 +19,7 @@ export const environment = {
   version: "${appVer}",
   name: "${appName}",
   production: true,
-  token_auth_config: {
-    apiHost: "${process.env.JAVA_HOME}",
-    apiBase: "${process.env.M2_HOME}"
-  }
+  url: "${process.env.URL}"
 };
 `
 
